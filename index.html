@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vukly - Revolutionizing Fitness Through Telegram</title>
+  <style>
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+  :root {
+    --primary-color: #0088cc;
+    --secondary-color: #4CAF50;
+    --background-color: #f0f2f5;
+    --text-color: #333;
+  }
+
+  body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+  }
+
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  header {
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  .logo {
+    width: 54px;
+    height: auto;
+  }
+
+  nav ul {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+  }
+
+  nav ul li a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: bold;
+  }
+
+  .tg-icon {
+    width: 30px;
+    height: 30px;
+    fill: var(--primary-color);
+  }
+
+  .hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('fitness-hero.jpg') no-repeat center center;
+    background-size: cover;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+  }
+
+  .hero-content {
+    max-width: 800px;
+  }
+
+  .hero h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+  }
+
+  .hero p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+  }
+
+  .features {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 40px 0;
+  }
+
+  .feature {
+    flex-basis: 22%;
+    text-align: center;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+  }
+
+  .feature svg {
+    width: 50px;
+    height: 50px;
+    fill: var(--primary-color);
+    margin-bottom: 15px;
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 40px 0;
+  }
+
+  .button {
+    padding: 15px 30px;
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    font-weight: bold;
+    font-size: 1.1em;
+  }
+
+  .button:hover {
+    background-color: #0077b3;
+  }
+
+  .about, .roadmap, .founders, .contact-form {
+    margin: 60px 0;
+  }
+
+  .about h2, .roadmap h2, .founders h2, .contact-form h2 {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 30px;
+  }
+
+  .roadmap img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .founders-grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+
+  .founder {
+    text-align: center;
+    margin: 20px;
+    flex-basis: calc(25% - 40px);
+  }
+
+  .founder img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+  }
+
+  .contact-form form {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .contact-form input, .contact-form textarea {
+    margin-bottom: 15px;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+  }
+
+  footer {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 30px 0;
+  }
+
+  footer a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+  }
+
+  @media (max-width: 768px) {
+    .header-content {
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    nav ul {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .hero {
+      height: 400px;
+    }
+
+    .hero h1 {
+      font-size: 2em;
+    }
+
+    .hero p {
+      font-size: 1em;
+    }
+
+    .features {
+      flex-direction: column;
+    }
+
+    .feature {
+      flex-basis: 100%;
+    }
+
+    .buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .founder {
+      flex-basis: 100%;
+    }
+  }
+</style></head><body>
+<header>
+  <div class="container header-content">
+    <img src="vukly-logo.webp" alt="Vukly Logo" class="logo">
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#roadmap">Roadmap</a></li>
+        <li><a href="#founders">Team</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <a href="https://t.me/VuklyFitnessChannel" target="_blank">
+      <svg class="tg-icon" viewBox="0 0 24 24">
+        <path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/>
+      </svg>
+    </a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Transform Your Fitness Journey with Vukly</h1>
+      <p>Revolutionizing health and wellness through Telegram's mini app ecosystem. Join us in shaping the future of personalized fitness!</p>
+      <div class="buttons">
+        <a href="https://t.me/vukly" class="button">Join Our Community</a>
+        <a href="https://t.me/Vukly_bot/app" class="button">Try Vukly Now</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <div class="container">
+      <h2>About Vukly</h2>
+      <p>Vukly is not just another fitness app - it's a revolutionary platform designed specifically for the Telegram mini app ecosystem. We're bringing the power of personalized fitness, nutrition guidance, and community support right to your favorite messaging app.</p>
+      <p>As participants in the Telegram mini app accelerator, we're at the forefront of integrating cutting-edge technology with everyday communication tools. Our mission is to make fitness accessible, engaging, and seamlessly integrated into your digital life.</p>
+    </div>
+  </section>
+
+  <section id="features" class="features">
+    <div class="container">
+      <div class="feature">
+        <svg viewBox="0 0 24 24">
+          <path d="M20.57 14.86L22 13.43 20.57 12 17 15.57 8.43 7 12 3.43 10.57 2 9.14 3.43 7.71 2 5.57 4.14 4.14 2.71 2.71 4.14l1.43 1.43L2 7.71l1.43 1.43L2 10.57 3.43 12 7 8.43 15.57 17 12 20.57 13.43 22l1.43-1.43L16.29 22l2.14-2.14 1.43 1.43 1.43-1.43-1.43-1.43L22 16.29z"/>
+        </svg>
+        <h3>Customized Workouts</h3>
+        <p>AI-powered exercise routines tailored to your fitness level, goals, and available equipment.</p>
+      </div>
+      <div class="feature">
+        <svg viewBox="0 0 24 24">
+          <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+        </svg>
+        <h3>Activity Tracking</h3>
+        <p>Seamless integration with wearables and smartphones to monitor your daily activity and progress.</p>
+      </div>
+      <div class="feature">
+        <svg viewBox="0 0 24 24">
+          <path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z"/>
+        </svg>
+        <h3>Nutrition Guidance</h3>
+        <p>Personalized meal plans and nutritional advice to complement your fitness journey.</p>
+      </div>
+      <div class="feature">
+        <svg viewBox="0 0 24 24">
+          <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+        </svg>
+        <h3>Community Motivation</h3>
+        <p>Connect with like-minded individuals, share achievements, and stay motivated within the Telegram ecosystem.</p>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .roadmap-container {
+      width: 756px;
+      margin: 0 auto; /* Выровнять по центру */
+      text-align: center;
+    }
+
+    .roadmap ul {
+      list-style-type: none;
+      padding: 0;
+      text-align: left; /* Выровнять текст внутри списка */
+      margin-top: 20px; /* Добавим немного отступа сверху для визуального разделения */
+    }
+
+    .roadmap li {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+      font-size: 18px;
+    }
+
+    .roadmap li::before {
+      content: '';
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+      border-radius: 50%;
+    }
+
+    /* Зеленая галочка */
+    .roadmap li.completed::before {
+      content: '✔';
+      background-color: #28a745;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Спиннер для текущих задач */
+    .roadmap li.in-progress::before {
+      content: '';
+      border: 2px solid #ffc107;
+      border-top: 2px solid transparent;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* Текст для будущих дат */
+    .roadmap li.upcoming::before {
+      content: '⏳';
+      background-color: #007bff;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .roadmap span {
+      font-weight: bold;
+      color: #333;
+      margin-left: 10px;
+    }
+  </style>
+
+  <section id="roadmap" class="roadmap">
+    <div class="roadmap-container">
+      <h2>Our Roadmap to Success</h2>
+      <p>Our strategic roadmap highlights the milestones we've achieved and the exciting plans ahead. Here's a detailed overview:</p>
+
+      <!-- Картинка -->
+      <img src="roadmap.png?2" alt="Vukly Development Roadmap" width="756">
+
+      <ul>
+        <li class="completed"><strong>1 Market Research & Goal Setting (Completed)</strong></li>
+        <li class="completed"><strong>2 MVP Technical Development (Completed)</strong></li>
+        <li class="completed"><strong>3 Telegram MVP Bot Launch (Completed)</strong></li>
+        <li class="in-progress"><strong>4 Investment & Sponsorship Acquisition (In Progress)</strong></li>
+        <li class="upcoming"><strong>5 Full App Development & Launch Q4 2024</strong></li>
+        <li class="upcoming"><strong>6 Smart Contract Deployment for Coin Q1 2025</strong></li>
+        <li class="upcoming"><strong>7 Coin Airdrop & ListingQ1 2025 Q2 2025</strong></li>
+      </ul>
+    </div>
+  </section>
+
+
+  <section id="founders" class="founders">
+    <div class="container">
+      <h2>Meet the Visionaries Behind Vukly</h2>
+      <p>Our diverse team brings together expertise in fitness, technology, and business to create a truly revolutionary platform:</p>
+      <div class="founders-grid">
+        <div class="founder">
+          <img src="founder1.jpg" alt="Vladimir" width="150" height="150">
+          <h3>Vladimir</h3>
+          <p>CEO & Visionary Leader</p>
+        </div>
+        <div class="founder">
+          <img src="founder2.jpg" alt="Denis" width="150" height="150">
+          <h3>Denis</h3>
+          <p>Chief Fitness Expert & Nutrition Specialist</p>
+        </div>
+        <div class="founder">
+          <img src="founder3.jpg" alt="Kristina" width="150" height="150">
+          <h3>Kristina</h3>
+          <p>Chief Designer</p>
+        </div>
+        <div class="founder">
+          <img src="founder4.jpg" alt="Alexander" width="150" height="150">
+          <h3>Alexander</h3>
+          <p>Lead Developer & Software Engineer</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact-form">
+    <div class="container">
+      <h2>Join the Vukly Revolution</h2>
+      <p>Have questions or want to collaborate? We'd love to hear from you!</p>
+      <form action="https://formspree.io/f/your-form-id" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <input type="tel" name="phone" placeholder="Your Phone (optional)">
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit" class="button">Send Message</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <a href="https://t.me/vukly">Join Our Channel</a>
+    <a href="https://t.me/Vukly_bot/app">Try Vukly Now</a>
+    <a href="#contact">Contact Us</a>
+    <p>&copy; 2024 Vukly. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  // Smooth scrolling for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      document.querySelector(this.getAttribute('href')).scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
+  });
+
+  // Form submission handling
+  document.querySelector('form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    // Here you would typically send the form data to a server
+    // For this example, we'll just show an alert
+    alert('Thank you for your message! We will get back to you soon.');
+    this.reset();
+  });
+</script>
+</body></html>
